@@ -79,4 +79,29 @@
     display: none;
 }
 
-  
+#noSearchResult{
+    text-align: center;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#noSearchResult{
+    position: relative;
+    top:200px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 80%;
+    height: auto;
+    padding:25px 0px 15px;
+    font-size: 100px;
+    margin: 50px auto;
+    background-color: rgb(185, 150, 164);
+    border: solid 1px  rgb(185, 150, 164);
+    border-radius: 10px;
+    color:red;
+}
+
+#noSearchResult>p{
+    font-size: 25px;
+}

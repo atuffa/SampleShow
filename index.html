@@ -19,6 +19,7 @@
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
    
     <!-- Jquery CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script
     src="https://code.jquery.com/jquery-3.3.1.js"
     integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
@@ -34,23 +35,39 @@
             <!-- Add spacer, to align navigation to the right -->
             <div class="mdl-layout-spacer"></div>
             <form id="search-form">
-                <input class="search" type="text" required pattern="[A-Za-z' -]+" title="please make sure you've entered a valid city name" id="user-input" placeholder="City">
-                <button class="search-button" id="search-button"  type="submit">Search</button>
+                <input class="search" type="text"  id="user-input" placeholder="City">
+                <button class="search-button" id="search-button"  type="button">Search</button>
             </form>
           </div>
         </header>
+    
+   
+
+    <div id="noSearchResults">
+            
+    </div>
+
+
 
     <main class="mdl-layout__content">
+
+        
         <div id="myDiv"class="page-content">
             <div id="map">
             </div>
+            
+            <!-- Result -->
             <results id="results" class="mdl-grid results-flex">
             </results>
+
         </div>
     </main>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQNQGxYcg1AvHmQXr6IroYl1yneo_RUv4&callback=initMap">
-    </script>
+
     <script type="text/javascript" src="./index.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCivw74_zHsMDElLiaievvnjDKM4WdlkRk&libraries=places&callback=handleSearch"></script>
+    <!-- <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQNQGxYcg1AvHmQXr6IroYl1yneo_RUv4&callback=initMap">
+    </script> -->
+    
 </body>
 </html>
