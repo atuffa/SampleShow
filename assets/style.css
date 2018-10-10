@@ -2,6 +2,13 @@
 div.header-container.mdl-layout__header-row{
     padding-left: 10px !important;  
 }
+
+a.navbar-brand{
+    padding-left: 30px !important;
+    color: white !important;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2em;
+}
 .mdl-layout > .mdl-layout__header {
     background-color: black;
      padding-left: 10px !important;
@@ -53,7 +60,7 @@ div.header-container.mdl-layout__header-row{
     font-family: 'Istok Web', sans-serif;
     color: white;
     background-color: black;
-    width: 95%;
+    width: 100%;
     font-size: 14px;
     line-height: 20px;
     display: flex;
