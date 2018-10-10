@@ -2,7 +2,12 @@
 div.header-container.mdl-layout__header-row{
     padding-left: 10px !important;  
 }
-
+nav.navbar.navbar-inverse{
+    padding: 10px 0px 10px;
+    border-radius: 0px;
+    margin-bottom: 0px;
+    font-family: 'Montserrat', sans-serif;
+}
 a.navbar-brand{
     padding-left: 30px !important;
     color: white !important;
