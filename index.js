@@ -179,7 +179,7 @@ $(document).ready(function(){
                             <div class="support-text">${startDate}</div>
                         </div>
                         <div class="mdl-card__actions mdl-card--border">
-                            <a data-toggle="modal" data-target="#myModal" data-lat="${venueCleanLat}" data-long="${venueCleanLong}"  class="button mdl-button mdl-js-button mdl-js-ripple-effect ">Map</a>
+                            <a data-toggle="modal" data-target="#myModal" data-lat="${venueCleanLat}" data-long="${venueCleanLong}"  data-venueName = "${venueName}" data-venueAddress = "${venueAddress}"class="button mdl-button mdl-js-button mdl-js-ripple-effect ">Map</a>
                             <a tabindex="0" href="${ticketPurchaseLink}" target="_blank" class="mdl-button mdl-js-button mdl-js-ripple-effect">Tickets</a>
                         </div>
                         </div>`
@@ -291,7 +291,9 @@ $(document).ready(function(){
     // Re-init map before show modal
   $('#myModal').on('show.bs.modal', function(event) {
     let button = $(event.relatedTarget);
-    console.log(typeof button.data('long'))
+    console.log( button.data('venueaddress'))
+    $("#myModalLabel").text(button.data('venuename'))
+    $("#myModalAddress").text(button.data('venueaddress'))
     initializeGMap(button.data('lat'), button.data('long'));
     $("#location-map").css("width", "100%");
     $("#map_canvas").css("width", "100%");

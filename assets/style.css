@@ -109,3 +109,16 @@ div.header-container.mdl-layout__header-row{
 #noSearchResult>p{
     font-size: 25px;
 }
+#myModal{
+    width:100%;
+}
+#myModalLabel{
+    font-weight: bold;
+    text-align: center;
+    font-size: 3em;
+}
+
+#myModalAddress{
+    font-style: oblique;
+    font-size: 1.5em;
+}
