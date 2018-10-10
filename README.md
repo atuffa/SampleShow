@@ -31,9 +31,9 @@ The app has the following ff functions..
 ### Screenshots
 - Desktop View
   ![Geolocation](/D1.png)
-  ![Destop View](/D1.png)
-  ![Google AutoComplete](/D1.png)
-  ![No Event](/D1.png)
+  ![Destop View](/D2.png)
+  ![Google AutoComplete](/D3.png)
+  ![No Event](/D4.png)
 
 
 - Mobile View
