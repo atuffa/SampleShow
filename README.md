@@ -43,5 +43,5 @@ The app has the following ff functions..
 
 
 - Mobile View
-  ![Mobile view](/M.png)
+ ![Mobile view](/M.png)
 
