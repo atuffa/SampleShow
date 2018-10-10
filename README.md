@@ -11,15 +11,18 @@ It's a front-end app that lets user search events/shows using venue name or city
 The app has the following ff functions..
 
   1. Displays available events when the "search" button is clicked, which .... 
+  
       * uses the autocompleted venue name address or city to retrieve available events from Ticketfly Web API
    
   2. Displays a modal when the "map" button is clicked, which ...
+  
       * uses the latitude and longitude stored as a data attribute to initialize the map 
    
-  3. Directs to Ticketfly website when the "ticket" button is clicked, which 
+  3. Directs to Ticketfly website when the "ticket" button is clicked, which ...
+  
       * uses the tickets Url from ticketfly Api
   
-### Language,Tools and technologies 
+### Language,Tools and Technologies 
     
     Language: HTML, CSS, JavaScript
     Framework: BootStrap, Material io, Jquery
