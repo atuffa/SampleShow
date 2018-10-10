@@ -17,6 +17,16 @@ $(document).ready(function(){
             }
         );
 
+        
+        
+
+        // $('.modal-trigger').leanModal({
+        //     ready: function () {
+        //         var map2 = document.getElementById("googleMap2");
+        //         google.maps.event.trigger(map2, 'resize');
+        //     }
+        // });
+
         // $('#search-button').on("submit", function handleSearch(e){
         //     e.preventDefault
         // const input = document.getElementById('user-input')
@@ -26,13 +36,17 @@ $(document).ready(function(){
     });
 
 
-    // ======================================== Functions ===========================================================
+    // ======================================== Functions and variables ===========================================================
+
+    // Google Map Intialization
+    let map = null;
+    let myMarker;
+    let myLatlng;
 
     // Array to store the splitted autocorrect result
     let cityArray = []
 
-
-    // clear the search
+    // clear on focus
     $("#user-input").on("focus", function clearFields(){
         this.value = ""
     })
@@ -44,9 +58,6 @@ $(document).ready(function(){
         e.preventDefault()
 
         let autocompleteCity = $("#user-input").val();
-
-
-
 
         // used to store the autocomplete result
         autocompleteCity = $("#user-input").val()
@@ -123,6 +134,7 @@ $(document).ready(function(){
             // condition for rendering the 
             if (availableEvent === 0 ){
                 console.log("I'm here")
+                $("#noSearchResults").css("display", "block")
                 let noSearch= 
                 `<div id="noSearchResult">
                     <p>No events found for "${cityArray[0]}" </p>
@@ -156,7 +168,7 @@ $(document).ready(function(){
                         image = response.events[i].headliners[0].image.jumbo.path
                         // console.log(image);
                     }
-
+                    
                         // card to be appended
                         let eventCard =`<div class="mdl-card demo-card-event mdl-shadow--2dp mdl-cell mdl-cell--4-col">
                         <div class="mdl-card__title mdl-card--expand" style="background: url('${image}') center / cover;">
@@ -167,7 +179,7 @@ $(document).ready(function(){
                             <div class="support-text">${startDate}</div>
                         </div>
                         <div class="mdl-card__actions mdl-card--border">
-                            <a id="showMap" href="#myDiv" data-lat="${venueCleanLat}" data-long="${venueCleanLong}" href="#map" class="button mdl-button mdl-js-button mdl-js-ripple-effect">Map</a>
+                            <a data-toggle="modal" data-target="#myModal" data-lat="${venueCleanLat}" data-long="${venueCleanLong}"  class="button mdl-button mdl-js-button mdl-js-ripple-effect ">Map</a>
                             <a tabindex="0" href="${ticketPurchaseLink}" target="_blank" class="mdl-button mdl-js-button mdl-js-ripple-effect">Tickets</a>
                         </div>
                         </div>`
@@ -183,6 +195,7 @@ $(document).ready(function(){
         });// End of the TicketFly Api promise
     }// End of function enclosing the ticketfly api query and promise
 
+    
 
     // Google maps api call
     function makeMapsAjaxCall(lat,lng){
@@ -210,39 +223,82 @@ $(document).ready(function(){
         })
     }
 
-    // Create Map
-    function initMap() {
-        console.log("map")
-        $(document).on("click","#showMap", function(){
-        console.log("map");
-        $("#map").css("display","block");
-        let string =$(this).attr("data-lat");
-        let lat =$(this).data("lat")
-        let long =$(this).data("long");
-        long =+long
-        console.log($(this).attr("data-lat"));
-        console.log(typeof long);
+    // // Create Map
+    // function initMap() {
+    //     console.log("map")
+    //     $(document).on("click","#showMap", function(){
+    //     console.log("map");
+    //     $("#map").css("display","block");
+    //     let string =$(this).attr("data-lat");
+    //     let lat =$(this).data("lat")
+    //     let long =$(this).data("long");
+    //     long =+long
+    //     console.log($(this).attr("data-lat"));
+    //     console.log(typeof long);
        
-          var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 13,
-            center: {lat: lat, lng: long}
-          });
+    //       var map = new google.maps.Map(document.getElementById('map'), {
+    //         zoom: 13,
+    //         center: {lat: lat, lng: long}
+    //       });
   
-          let marker = new google.maps.Marker({
-            map: map,
-            draggable: true,
-            animation: google.maps.Animation.DROP,
-            position: {lat: lat, lng: long}
-          });
-          marker.addListener('click', toggleBounce);
-        });
-        }
+    //       let marker = new google.maps.Marker({
+    //         map: map,
+    //         draggable: true,
+    //         animation: google.maps.Animation.DROP,
+    //         position: {lat: lat, lng: long}
+    //       });
+    //       marker.addListener('click', toggleBounce);
+    //     });
+    //     }
         
-        //Animate button
-        function toggleBounce() {
-          if (marker.getAnimation() !== null) {
-            marker.setAnimation(null);
-          } else {
-            marker.setAnimation(google.maps.Animation.BOUNCE);
-          }
-        }
+    //     //Animate button
+    //     function toggleBounce() {
+    //       if (marker.getAnimation() !== null) {
+    //         marker.setAnimation(null);
+    //       } else {
+    //         marker.setAnimation(google.maps.Animation.BOUNCE);
+    //       }
+    // }
+
+    function initializeGMap(lat, lng) {
+
+        // Google Autocomplete
+        // store the search input id
+        const input = document.getElementById('user-input')
+
+        // connect the autocomplete api with the search input field
+        let autocomplete = new google.maps.places.Autocomplete(input);
+
+
+        // Google Map API
+        myLatlng = new google.maps.LatLng(lat, lng);
+    
+        let myOptions = {
+          zoom: 12,
+          zoomControl: true,
+          center: myLatlng,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+    
+        map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+    
+        myMarker = new google.maps.Marker({
+          position: myLatlng
+        });
+        myMarker.setMap(map);
+      }
+
+    // Re-init map before show modal
+  $('#myModal').on('show.bs.modal', function(event) {
+    let button = $(event.relatedTarget);
+    console.log(typeof button.data('long'))
+    initializeGMap(button.data('lat'), button.data('long'));
+    $("#location-map").css("width", "100%");
+    $("#map_canvas").css("width", "100%");
+  });
+
+  // Trigger map resize event after modal shown
+  $('#myModal').on('shown.bs.modal', function() {
+    google.maps.event.trigger(map, "resize");
+    map.setCenter(myLatlng);
+  });

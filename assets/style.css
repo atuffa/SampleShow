@@ -1,6 +1,10 @@
 /* Header Styles */
+div.header-container.mdl-layout__header-row{
+    padding-left: 10px !important;  
+}
 .mdl-layout > .mdl-layout__header {
     background-color: black;
+     padding-left: 10px !important;
 }
 
 .mdl-layout__header > .mdl-layout__header-row > .mdl-layout-title {

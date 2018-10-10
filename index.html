@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Show Sampler</title>
+    <!-- <title>Show Sampler</title> -->
 
     <!--CSS-->
     <link rel="stylesheet" href="./assets/style.css">
@@ -17,57 +17,102 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-   
+    
+    <!-- Bootsrap CDN -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    
     <!-- Jquery CDN -->
+    <!-- jQuery library -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script
+    <!-- <script
     src="https://code.jquery.com/jquery-3.3.1.js"
     integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-    crossorigin="anonymous"></script>
+    crossorigin="anonymous"></script> -->
    
 </head>
 <body>
+
+    <!-- Navbar -->
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
         <header class="mdl-layout__header">
           <div tabindex="0" class="header-container mdl-layout__header-row">
             <!-- Title -->
-            <span tabindex="0" class="mdl-layout-title">Show Sampler</span>
+            <span tabindex="0" class="mdl-layout-title" style>eventZ</span>
             <!-- Add spacer, to align navigation to the right -->
             <div class="mdl-layout-spacer"></div>
             <form id="search-form">
-                <input class="search" type="text"  id="user-input" placeholder="City">
+                <input class="search" type="text"  id="user-input" placeholder="City/Venue">
                 <button class="search-button" id="search-button"  type="button">Search</button>
             </form>
           </div>
         </header>
     
-   
-
+    <!-- Used to notify user if there is no search result -->
     <div id="noSearchResults">
             
     </div>
 
-
-
+    <!-- Event cards -->
     <main class="mdl-layout__content">
 
-        
         <div id="myDiv"class="page-content">
-            <div id="map">
-            </div>
+            <!-- <div id="map">
+            </div> -->
             
             <!-- Result -->
             <results id="results" class="mdl-grid results-flex">
             </results>
-
         </div>
+
     </main>
 
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">eventZ Address</h4>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-md-12 modal_body_content">
+                  <p>Some contents...</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 modal_body_map">
+                  <div class="location-map" id="location-map">
+                    <div style="width: 600px; height: 400px;" id="map_canvas"></div>
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="row">
+                <div class="col-md-12 modal_body_end">
+                  <p>Else...</p>
+                </div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <!-- Js file -->
     <script type="text/javascript" src="./index.js"></script>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCivw74_zHsMDElLiaievvnjDKM4WdlkRk&libraries=places&callback=handleSearch"></script>
-    <!-- <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQNQGxYcg1AvHmQXr6IroYl1yneo_RUv4&callback=initMap">
-    </script> -->
+
+    <!-- Google Map API -->
+    <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCivw74_zHsMDElLiaievvnjDKM4WdlkRk&libraries=places&callback=handleSearch"></script> -->
     
+    <!-- Google Place Autocorrect API -->
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCivw74_zHsMDElLiaievvnjDKM4WdlkRk&libraries=places&callback=initializeGMap">
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </body>
 </html>
