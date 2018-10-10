@@ -30,9 +30,12 @@ The app has the following ff functions..
 
 ### Screenshots
 - Desktop View
-  * ![Insert(posting)](/ScreenShot/mobile.png)
+  ![Geolocation](/D1.png)
+  ![Destop View](/D1.png)
+  ![Google AutoComplete](/D1.png)
+  ![No Event](/D1.png)
 
 
 - Mobile View
-  * ![Devoured](/ScreenShot/desktop.png)
+  ![Mobile view](/M.png)
 
