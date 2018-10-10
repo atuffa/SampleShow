@@ -29,13 +29,19 @@ The app has the following ff functions..
     Tools: TicketFly Web API, Google Maps API
 
 ### Screenshots
-- Desktop View
+- Geolocation
   ![Geolocation](/D1.png)
-  ![Destop View](/D1.png)
-  ![Google AutoComplete](/D1.png)
-  ![No Event](/D1.png)
+  
+- Destop View
+  ![Destop View](/D2.png)
+  
+- Google AutoComplete
+  ![Google AutoComplete](/D3.png)
+  
+- No Event
+  ![No Event](/D4.png)
 
 
 - Mobile View
-  ![Mobile view](/M.png)
+ ![Mobile view](/M.png)
 
