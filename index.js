@@ -16,23 +16,6 @@ $(document).ready(function(){
             makeMapsAjaxCall(lat,lng);
             }
         );
-
-        
-        
-
-        // $('.modal-trigger').leanModal({
-        //     ready: function () {
-        //         var map2 = document.getElementById("googleMap2");
-        //         google.maps.event.trigger(map2, 'resize');
-        //     }
-        // });
-
-        // $('#search-button').on("submit", function handleSearch(e){
-        //     e.preventDefault
-        // const input = document.getElementById('user-input')
-        // let autocomplete = new google.maps.places.Autocomplete(input);
-        // console.log($("#user-input").val())
-        // })
     });
 
 
@@ -82,33 +65,6 @@ $(document).ready(function(){
         let autocomplete = new google.maps.places.Autocomplete(input);
 
     }// End of handleSearch 
-
-
-    // function handleSearch(e) {
-
-    //     //Ensure sure form doesnt submit and reset the page
-    //     // e.preventDefault()
-
-    //     // Clear map
-    //     $("#map").css("display", "none")
-
-    //     //Grab user input
-    //     const input = document.getElementById('user-input');
-
-    //     let autocomplete = new google.maps.places.Autocomplete(input);
-
-    //     console.log($("#user-input").val())
-    //     // e.preventDefault()
-    //     // if (searchInput === "") {
-    //     // } else {
-
-    //     // const searchCity = searchInput.replace(' ', '+');
-
-    //     // //Make Ajax Call
-    //     // makeTicketFlyAjaxCall(searchCity)
-    //     // }
-      
-    // };
 
 
     //TicketFly api call
@@ -223,43 +179,7 @@ $(document).ready(function(){
         })
     }
 
-    // // Create Map
-    // function initMap() {
-    //     console.log("map")
-    //     $(document).on("click","#showMap", function(){
-    //     console.log("map");
-    //     $("#map").css("display","block");
-    //     let string =$(this).attr("data-lat");
-    //     let lat =$(this).data("lat")
-    //     let long =$(this).data("long");
-    //     long =+long
-    //     console.log($(this).attr("data-lat"));
-    //     console.log(typeof long);
-       
-    //       var map = new google.maps.Map(document.getElementById('map'), {
-    //         zoom: 13,
-    //         center: {lat: lat, lng: long}
-    //       });
-  
-    //       let marker = new google.maps.Marker({
-    //         map: map,
-    //         draggable: true,
-    //         animation: google.maps.Animation.DROP,
-    //         position: {lat: lat, lng: long}
-    //       });
-    //       marker.addListener('click', toggleBounce);
-    //     });
-    //     }
-        
-    //     //Animate button
-    //     function toggleBounce() {
-    //       if (marker.getAnimation() !== null) {
-    //         marker.setAnimation(null);
-    //       } else {
-    //         marker.setAnimation(google.maps.Animation.BOUNCE);
-    //       }
-    // }
-
+    // Google map and autocomplete
     function initializeGMap(lat, lng) {
 
         // Google Autocomplete
